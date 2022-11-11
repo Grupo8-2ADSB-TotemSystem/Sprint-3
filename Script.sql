@@ -83,10 +83,13 @@ create table dado (
     foreign key (fkTotem) references totem(idTotem)
 );
 
-create table chamado (
-idChamado int primary key auto_increment,
+create table reporte (
+idReporte int primary key auto_increment,
+idTotemReporte varchar(45),
 estacao varchar(45),
 mensagem varchar(255),
 fkEmpresa int,
+fkTotem int,
+foreign key (fkTotem) references totem(idTotem),
 foreign key (fkEmpresa) references empresa(idEmpresa)
 );
