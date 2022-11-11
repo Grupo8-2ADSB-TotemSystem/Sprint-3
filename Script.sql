@@ -3,8 +3,8 @@ create database totembd;
 use totembd;
 
 create table estacao(
-	idEstacao int primary key auto_increment,
-	nomeEstacao varchar(45),
+    idEstacao int primary key auto_increment,
+    nomeEstacao varchar(45),
     cep char(8),
     numero int
 );
