@@ -2,11 +2,17 @@ create database totembd;
 
 use totembd;
 
+create table endereco (
+    idEndereco int primary key auto_increment,
+    cep char(8) not null,
+    numero int not null
+);
+
 create table estacao(
-    idEstacao int primary key auto_increment,
-    nomeEstacao varchar(45),
-    cep char(8),
-    numero int
+	idEstacao int primary key auto_increment,
+    fkEndereco int,
+	nomeEstacao varchar(45),
+    foreign key (fkEndereco) references endereco(idEndereco)
 );
 
 create table empresa(
@@ -84,12 +90,12 @@ create table dado (
 );
 
 create table reporte (
-idReporte int primary key auto_increment,
-idTotemReporte varchar(45),
-estacao varchar(45),
-mensagem varchar(255),
-fkEmpresa int,
-fkTotem int,
-foreign key (fkTotem) references totem(idTotem),
-foreign key (fkEmpresa) references empresa(idEmpresa)
+	idReporte int primary key auto_increment,
+	idTotemReporte varchar(45),
+	estacao varchar(45),
+	mensagem varchar(255),
+	fkEmpresa int,
+	fkTotem int,
+	foreign key (fkTotem) references totem(idTotem),
+	foreign key (fkEmpresa) references empresa(idEmpresa)
 );
